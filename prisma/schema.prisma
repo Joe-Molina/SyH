@@ -1,0 +1,393 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Articulo {
+  codigo      String @id   @db.VarChar(254)
+  grupo       String?   @db.VarChar(254)
+  subgrupo    String?   @db.VarChar(254)
+  nombre      String?   @db.VarChar(254)
+  nombrecorto String?   @db.VarChar(254)
+  referencia  String?   @db.VarChar(254)
+  marca       String?   @db.VarChar(254)
+  unidad      String?   @db.VarChar(254)
+  usaexist    Float?
+  costo       Float?
+  precio1     Float?
+  precio2     Float?
+  precio3     Float?
+  precio4     Float?
+  precio5     Float?
+  precio6     Float?
+  precio7     Float?
+  precio8     Float?
+  preciofin1  Float?
+  preciofin2  Float?
+  preciofin3  Float?
+  preciofin4  Float?
+  preciofin5  Float?
+  preciofin6  Float?
+  preciofin7  Float?
+  preciofin8  Float?
+  existencia  Float?
+  inactiva    Float?
+  comprometid Float?
+  minimo      Float?
+  maximo      Float?
+  origen      Float?
+  impuesto    Float?
+  usaserial   Float?
+  comision1   Float?
+  comision2   Float?
+  comision3   Float?
+  comision4   Float?
+  comision5   Float?
+  comision6   Float?
+  comision7   Float?
+  comision8   Float?
+  util1       Float?
+  util2       Float?
+  util3       Float?
+  util4       Float?
+  util5       Float?
+  util6       Float?
+  util7       Float?
+  util8       Float?
+  formato     String?   @db.VarChar(254)
+  decimales   Float?
+  compuesto   Float?
+  cfob        Float?
+  cnacionali  Float?
+  prcnac      Float?
+  cflete      Float?
+  prcflete    Float?
+  carancel    Float?
+  prcarancel  Float?
+  cgastoper   Float?
+  prccosoper  Float?
+  cotroscos   Float?
+  ccostocyf   Float?
+  costoex     Float?
+  costoref    Float?
+  precio1ex   Float?
+  precio2ex   Float?
+  precio3ex   Float?
+  precio4ex   Float?
+  precio5ex   Float?
+  precio6ex   Float?
+  precio7ex   Float?
+  precio8ex   Float?
+  factor      Float?
+  garantia    Float?
+  empaque     Float?
+  unidadgrp   String?   @db.VarChar(254)
+  cntgrp      Float?
+  costgrp     Float?
+  precio1grp  Float?
+  precio2grp  Float?
+  precio3grp  Float?
+  precio4grp  Float?
+  precio5grp  Float?
+  precio6grp  Float?
+  precio7grp  Float?
+  precio8grp  Float?
+  prcgrp1     Float?
+  prcgrp2     Float?
+  prcgrp3     Float?
+  prcgrp4     Float?
+  prcgrp5     Float?
+  prcgrp6     Float?
+  prcgrp7     Float?
+  prcgrp8     Float?
+  creadopor   String?   @db.VarChar(254)
+  modifpor    String?   @db.VarChar(254)
+  margenpor   String?   @db.VarChar(254)
+  costo_ant   Float?
+  costo_prom  Float?
+  impuesto1   Float?
+  impuesto2   Float?
+  impuesto3   Float?
+  impuesto4   Float?
+  impuesto5   Float?
+  impuesto6   Float?
+  rutafoto    String?   @db.VarChar(254)
+  detalles    String?   @db.LongText
+  contraindi  String?   @db.LongText
+  usointerno  Float?
+  aux1        Float?
+  aux2        Float?
+  aux3        Float?
+  simbolo     String?   @db.VarChar(254)
+  modelo      String?   @db.VarChar(254)
+  discont     Float?
+  flotante    Float?
+  cimpuesto1  Float?
+  cimpuesto2  Float?
+  cimpuesto3  Float?
+  cimpuesto4  Float?
+  cimpuesto5  Float?
+  cimpuesto6  Float?
+  fechacrea   DateTime? @db.Date
+  cuentacont  String?   @db.VarChar(254)
+  metodo      Float?
+  sevence     Float?
+  usalotes    Float?
+  controlado  Float?
+  volumen     Float?
+  peso        Float?
+  diametro    String?   @db.VarChar(254)
+  usabalanza  Float?
+  topeminvent Float?
+  topemaxvent Float?
+  forma       String?   @db.VarChar(254)
+  esvehiculo  Float?
+  aceptadscto Float?
+  aceptacred  Float?
+  metodoround Float?
+  unidinamica Float?
+  campo1      String?   @db.VarChar(254)
+  campo2      String?   @db.VarChar(254)
+  campo3      String?   @db.VarChar(254)
+  campo4      String?   @db.VarChar(254)
+  campo5      String?   @db.VarChar(254)
+  campo6      String?   @db.VarChar(254)
+  campo7      String?   @db.VarChar(254)
+  campo8      String?   @db.VarChar(254)
+  campo9      String?   @db.VarChar(254)
+  campo10     String?   @db.VarChar(254)
+  imp_naciona Float?
+  imp_producc Float?
+  gimp_nacion Float?
+  gimp_produc Float?
+  ctacontinv  String?   @db.VarChar(254)
+  ctacontcost String?   @db.VarChar(254)
+  ctacontingr String?   @db.VarChar(254)
+  blocked     Float?
+  usatallacol Float?
+  deposito_in String?   @db.VarChar(254)
+  deposito_ou String?   @db.VarChar(254)
+  und_simplea Float?
+  usa_servido Int?
+  artcolor    Float?
+  para_web    Float?
+  rotacionvta Float?
+  ctacontdevo String?   @db.VarChar(254)
+  secompra    Float?
+  dadicart01  String?   @db.VarChar(254)
+  dadicart02  String?   @db.VarChar(254)
+  dadicart03  String?   @db.VarChar(254)
+  discontc    Float?
+  codarancel  String?   @db.VarChar(254)
+  recargast   Int?
+  exislr      Int?
+  fechamodifi DateTime? @db.Date
+  esdinamico  Int?
+  usa_escala  Int?
+  usacanjepun Int?
+  usabulto    Int?
+  cantbulto   Float?
+  nousaweb    Float?
+  codcont_cmx String?   @db.VarChar(254)
+  ctacontdevc String?   @db.VarChar(254)
+  garantiac   Float?
+  hashtag     String?   @db.LongText
+  ctacontdesc String?   @db.VarChar(254)
+  codigotipom String?   @db.VarChar(254)
+  codigotipop String?   @db.VarChar(254)
+  datos_xml   String?   @db.LongText
+  formato2    String?   @db.VarChar(254)
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model conceptos_fijos_tipo_socio {
+  vista       String?   @db.VarChar(254)
+  codigo      String @id   @db.VarChar(254)
+  codigoart   String?   @db.VarChar(254)
+  fch_vig     DateTime? @db.Date
+  mto_cpto    Float?
+  ptj_mora    Float?
+  mto_mora    Float?
+  art_mora    String?   @db.VarChar(254)
+  ult_pago    Float?
+  acceso      Float?
+  edad_lim    Float?
+  ptj_inc_eda Float?
+  edad_desde  Float?
+  codcliente  String?   @db.VarChar(254)
+  aplica_mtov Float?
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model familiares {
+  codigo_socios     String?   @db.VarChar(254)
+  codigo_familiares String @id   @db.VarChar(254)
+  nombre            String?   @db.VarChar(254)
+  rutafoto          String?   @db.VarChar(254)
+  fechanac          DateTime? @db.Date
+  codigo_parentesco String?   @db.VarChar(254)
+  cedula            String?   @db.VarChar(254)
+  fvence            DateTime? @db.Date
+  direccion         String?   @db.VarChar(254)
+  telefono_movil    String?   @db.VarChar(254)
+  email             String?   @db.VarChar(254)
+  cod               String?   @db.VarChar(254)
+  carnet            String?   @db.VarChar(254)
+  feemicrnt         DateTime? @db.Date
+  fevnccrnt         DateTime? @db.Date
+  foto              String?   @db.VarChar(254)
+  sexo              BigInt?
+  estatus           Int?
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model grupos {
+  codigo       String @id   @db.VarChar(254)
+  nombre       String?   @db.VarChar(254)
+  tcantidad    Float?
+  tfacturado   Float?
+  usatalla     Float?
+  usacolor     Float?
+  prcutil      Float?
+  descuento    Float?
+  formato      String?   @db.VarChar(254)
+  ctacontinv   String?   @db.VarChar(254)
+  ctacontcost  String?   @db.VarChar(254)
+  ctacontingr  String?   @db.VarChar(254)
+  oculto_rest  Float?
+  noaplicarec  Float?
+  formato2     String?   @db.VarChar(254)
+  grpcolor     Float?
+  hereda_prop  Float?
+  imp_mto_cmd  Float?
+  imp_mto_cmd1 Float?
+  delimitador  String?   @db.VarChar(254)
+  longitud_co  Float?
+  ctacontdevo  String?   @db.VarChar(254)
+  rutafoto     String?   @db.VarChar(254)
+  nombre_cort  String?   @db.VarChar(254)
+  prcarancel   Float?
+  eslicores    Int?
+  fechamodifi  DateTime? @db.Date
+  ctacontdevc  String?   @db.VarChar(254)
+  codcont_cmx  String?   @db.VarChar(254)
+  referencia   String?   @db.VarChar(254)
+  nousaweb     Float?
+  notas        String?   @db.LongText
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model mae_ultimo_pago {   
+  tipodoc    String?   @db.VarChar(254)
+  documento  String?   @db.VarChar(254)
+  fechadoc   DateTime? @db.Date
+  codcliente String?   @db.VarChar(254)
+  emision    DateTime? @db.Date
+  codigo     String @id   @db.VarChar(254)
+  pid        String?   @db.VarChar(254)
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model parentesco_familiares {
+  codigo String @id @db.VarChar(254)
+  nombre String? @db.VarChar(254)
+  carnet String? @db.VarChar(254)
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model socios {
+  codigo         String @id   @db.VarChar(254)
+  nombre         String?   @db.VarChar(254)
+  cedula         String?   @db.VarChar(254)
+  nrorif         String?   @db.VarChar(254)
+  nronit         String?   @db.VarChar(254)
+  referenc1      String?   @db.VarChar(254)
+  referenc2      String?   @db.VarChar(254)
+  direccion      String?   @db.VarChar(254)
+  telefonos      String?   @db.VarChar(254)
+  numerofax      String?   @db.VarChar(254)
+  fecha          DateTime? @db.Date
+  perscont       String?   @db.VarChar(254)
+  estatus        Float?
+  nota           String?   @db.VarChar(254)
+  email          String?   @db.VarChar(254)
+  wwwcli         String?   @db.VarChar(254)
+  tipo           String?   @db.VarChar(254)
+  direccobro     String?   @db.LongText
+  direcenvio     String?   @db.LongText
+  sexo           BigInt?
+  nacionalida    String?   @db.VarChar(254)
+  fechanac       DateTime? @db.Date
+  edocivil       Float?
+  telhabitaci    String?   @db.VarChar(254)
+  celular        String?   @db.VarChar(254)
+  trabempresa    String?   @db.VarChar(254)
+  trabtelefon    String?   @db.VarChar(254)
+  telefono_movil String?   @db.VarChar(254)
+  carnet         String?   @db.VarChar(254)
+  feemicrnt      DateTime? @db.Date
+  fevnccrnt      DateTime? @db.Date
+  foto           String?   @db.VarChar(254)
+  exonerado      BigInt?
+  fch_exon       DateTime? @db.Date
+  fin            DateTime? @db.Date
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model suspensiones_familiares {
+  idsus            Int?
+  codigo           String @id   @db.VarChar(254)
+  Nombreyapelllido String?   @db.VarChar(254)
+  fch_suspen       DateTime? @db.Date
+  dias             Int?
+  fch_vcto         DateTime? @db.Date
+  cod_mot          String?   @db.VarChar(254)
+  notas            String?   @db.LongText
+  Actjunta         Int?
+  ActTD            Int?
+  status           Int?
+  ingreso          DateTime? @db.Date
+  cedula           String?   @db.VarChar(254)
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model suspensiones_motivos {
+  cod_mot String @id @db.VarChar(254)
+  descr   String? @db.VarChar(254)
+
+
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model suspensiones_socios {
+  idsus            Int?
+  codigo           String @id   @db.VarChar(254)
+  Nombreyapelllido String?   @db.VarChar(254)
+  fch_suspen       DateTime? @db.Date
+  dias             Int?
+  fch_vcto         DateTime? @db.Date
+  cod_mot          String?   @db.VarChar(254)
+  notas            String?   @db.LongText
+  Actjunta         Int?
+  ActTD            Int?
+  status           Int?
+  ingreso          DateTime? @db.Date
+
+
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model tipo_socio {
+  codigo      String @id  @db.VarChar(254)
+  nombre      String? @db.VarChar(254)
+  codigocont  String? @db.VarChar(254)
+  carnet      String? @db.VarChar(254)
+  codcontcaja String? @db.VarChar(254)
+  predeter    Float?
+  nousaweb    Float?
+
+}
