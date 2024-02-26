@@ -2,7 +2,8 @@ import React from 'react'
 import { prisma } from './libs/prisma'
 import { json } from 'stream/consumers'
 import internal from 'stream';
-import Heeader from './components/dashboard/header';
+import Link from 'next/link';
+
 
 async function HomePage() {
 
@@ -11,7 +12,10 @@ async function HomePage() {
   
   return (
    <main className='min-h-screen bg-sky-200'>
-      <Heeader/>
+      <div>
+        <h2>Web SyH</h2>
+        <Link href="./dashboard"> entrar</Link>
+      </div>
    </main>
 
   )
