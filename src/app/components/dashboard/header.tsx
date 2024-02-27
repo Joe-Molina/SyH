@@ -5,24 +5,26 @@ function Heeader() {
 
   const links = {
     socios: {
-      url: "/dashboard/socios",
+      url: "/socios",
       name: "Socios"
     },
     facturas: {
-      url: "/dashboard/facturas",
+      url: "/facturas",
       name: "Facturas"
     }
 
   }
 
   return (
-    <section className='w-48 h-[95%] bg-sky-100 flex justify-start items-center flex-col mx-4 rounded-xl'>
-      <div className='w-5/6 h-32 bg-sky-200 flex items-center justify-center rounded-xl mt-4'>
-        <p className='text-sky-700 font-extrabold'>Web SyH</p>
+    <section className=' h-16 flex items-center justify-between border-b border-gray-200'>
+      <div className='w-52 h-10 flex items-center justify-center'>
+        <p className='text-black font-extrabold'>Web SyH</p>
       </div>
+      <div>
       {Object.values(links).map((link) => (
-        <Link href={link.url} className='p-2 bg-sky-200 text-sky-700 my-3 rounded-lg w-5/6'> {link.name} </Link>
+        <Link href={link.url} className='p-2  my-3 mr-3'> {link.name} </Link>
       ))}
+      </div>
     </section>
   )
 }
