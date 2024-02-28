@@ -1,6 +1,5 @@
 import React from 'react'
 import {prisma} from './../../libs/prisma'
-import CardInfo from '@/app/components/socios/informacio'
 import { TabsDemo } from '@/app/components/tab'
 
 const socio = async (codigo: string) => {
@@ -55,10 +54,9 @@ type Socio = {
 
 async function socioPage({ params: { codigo } }: { params: { codigo: string } }) {
 
+
   const socioo: Socio = await socio(codigo)
-  const direccion = socioo?.foto;
-  const partes = direccion?.split('\\');
-  const foto = partes[partes.length - 1];
+
 
   return (
     <div>

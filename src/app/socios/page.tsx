@@ -6,6 +6,8 @@ const  SociosPage  = async () => {
 
     const socios = await prisma.socios.findMany();
 
+    
+
   return (
     <article className='p-4'>
         <div className='text-4xl  ml-2 font-bold'>Buscar Socios</div>
