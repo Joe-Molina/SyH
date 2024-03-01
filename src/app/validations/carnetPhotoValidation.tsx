@@ -1,8 +1,4 @@
-import React from 'react'
-import Pruebass from '../components/pruebas/pruebas'
-import { prisma } from '@/app/libs/prisma'
-
-const validar = async (url: any) => {
+export const validarPhoto = async (url: any) => {
   try {
     const response = await fetch('http://cimnet.com/fotocarnet/' + url);
 
@@ -16,25 +12,10 @@ const validar = async (url: any) => {
       const AvatarIcon = '/avataricon.png'
 
       console.log(AvatarIcon);
-      return AvatarIcon;
+      return  AvatarIcon;
     }
   } catch (error) {
     console.error('Hubo un error al intentar verificar la existencia del archivo:');
     throw error; // Propaga el error para que pueda ser manejado externamente
   }
 }
-
-async function Pruebas() {
-
-  validar('0000011.bmp')
-  console.log(validar('0000011.bmp'))
-  console.log(validar('000001.bmp'))
-
-  return (
-    <div>
-        hola
-    </div>
-  )
-}
-
-export default Pruebas

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Heeader from './components/dashboard/header';
+import Heeader from './components/header';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,9 +17,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className  }>
+      <body className={inter.className}>
+        <main className="h-screen">
         <Heeader/>
-        {children}</body>
+        {children}
+        </main>
+        </body>
     </html>
   );
 }

@@ -17,27 +17,25 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
-import InfoSocios from "./socios/tabs/infoSocios"
+import InfoSocios from "./tabSections/infoSocios"
 
-import InfoFamiliares from '@/app/components/socios/tabs/infoFamiliares'
+import InfoFamiliares from '@/app/components/socio/tabSections/infoFamiliares'
 
 
-export function TabsDemo(data: any) {
+export function TabsDemo( data: any) {
+  // informacion sobre los familiares de los socios
+  const dataf = data.data.familiares
 
   
-
-  const datos = data.data
-
+// informacion personal de socios 
+  const datos = data.data.socio
   const direccion = datos.foto;
   const partes = direccion?.split('\\');
-  const foto = partes[partes.length - 1];
-
-  console.log(foto)
-
+  const foto = partes != undefined? partes[partes.length - 1] : "" ;
 
   return (
-    <Tabs defaultValue="Informacion personal" className="mx-3 mt-2">
-      <TabsList className="grid w-full grid-cols-2">
+    <Tabs defaultValue="Informacion personal" className="mx-3 mt-3">
+      <TabsList className="grid w-full grid-cols-3">
         <TabsTrigger value="Informacion personal">Informacion personal</TabsTrigger>
         <TabsTrigger value="Familiares">Familiares</TabsTrigger>
         <TabsTrigger value="Facturas">Facturas</TabsTrigger>
@@ -46,7 +44,8 @@ export function TabsDemo(data: any) {
         <Card>
           <CardHeader>
             <CardDescription>
-            <img src={ 'http://cimnet.com/fotocarnet/' + foto} className='w-32 h-32 rounded-md' />
+            <img src={ (foto != '')?'http://cimnet.com/fotocarnet/' + foto : 'error'} onError={(e) => {
+        e.target.src = '/avataricon.png'; }} className='w-32 h-32 rounded-md border' />
             </CardDescription>
             <CardTitle>{datos.nombre}</CardTitle>
           </CardHeader>
@@ -56,7 +55,7 @@ export function TabsDemo(data: any) {
         </Card>
       </TabsContent>
       <TabsContent value="Familiares">
-       <InfoFamiliares/>
+       <InfoFamiliares dataFamiliares={dataf}/>
       </TabsContent>
       <TabsContent value="Facturas">
         <Card>
