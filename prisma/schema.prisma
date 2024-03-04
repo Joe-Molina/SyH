@@ -7,8 +7,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model users {
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  username String
+  password String
+}
+
 model Articulo {
-  codigo      String @id   @db.VarChar(254)
+  codigo      String    @id @db.VarChar(254)
   grupo       String?   @db.VarChar(254)
   subgrupo    String?   @db.VarChar(254)
   nombre      String?   @db.VarChar(254)
@@ -206,7 +213,7 @@ model Articulo {
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model conceptos_fijos_tipo_socio {
   vista       String?   @db.VarChar(254)
-  codigo      String @id   @db.VarChar(254)
+  codigo      String    @id @db.VarChar(254)
   codigoart   String?   @db.VarChar(254)
   fch_vig     DateTime? @db.Date
   mto_cpto    Float?
@@ -225,7 +232,7 @@ model conceptos_fijos_tipo_socio {
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model familiares {
   codigo_socios     String?   @db.VarChar(254)
-  codigo_familiares String @id   @db.VarChar(254)
+  codigo_familiares String    @id @db.VarChar(254)
   nombre            String?   @db.VarChar(254)
   rutafoto          String?   @db.VarChar(254)
   fechanac          DateTime? @db.Date
@@ -246,7 +253,7 @@ model familiares {
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model grupos {
-  codigo       String @id   @db.VarChar(254)
+  codigo       String    @id @db.VarChar(254)
   nombre       String?   @db.VarChar(254)
   tcantidad    Float?
   tfacturado   Float?
@@ -281,26 +288,26 @@ model grupos {
 }
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model mae_ultimo_pago {   
+model mae_ultimo_pago {
   tipodoc    String?   @db.VarChar(254)
   documento  String?   @db.VarChar(254)
   fechadoc   DateTime? @db.Date
   codcliente String?   @db.VarChar(254)
   emision    DateTime? @db.Date
-  codigo     String @id   @db.VarChar(254)
+  codigo     String    @id @db.VarChar(254)
   pid        String?   @db.VarChar(254)
 }
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model parentesco_familiares {
-  codigo String @id @db.VarChar(254)
+  codigo String  @id @db.VarChar(254)
   nombre String? @db.VarChar(254)
   carnet String? @db.VarChar(254)
 }
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model socios {
-  codigo         String @id   @db.VarChar(254)
+  codigo         String    @id @db.VarChar(254)
   nombre         String?   @db.VarChar(254)
   cedula         String?   @db.VarChar(254)
   nrorif         String?   @db.VarChar(254)
@@ -340,7 +347,7 @@ model socios {
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model suspensiones_familiares {
   idsus            Int?
-  codigo           String @id   @db.VarChar(254)
+  codigo           String    @id @db.VarChar(254)
   Nombreyapelllido String?   @db.VarChar(254)
   fch_suspen       DateTime? @db.Date
   dias             Int?
@@ -356,16 +363,14 @@ model suspensiones_familiares {
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model suspensiones_motivos {
-  cod_mot String @id @db.VarChar(254)
+  cod_mot String  @id @db.VarChar(254)
   descr   String? @db.VarChar(254)
-
-
 }
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model suspensiones_socios {
   idsus            Int?
-  codigo           String @id   @db.VarChar(254)
+  codigo           String    @id @db.VarChar(254)
   Nombreyapelllido String?   @db.VarChar(254)
   fch_suspen       DateTime? @db.Date
   dias             Int?
@@ -376,18 +381,15 @@ model suspensiones_socios {
   ActTD            Int?
   status           Int?
   ingreso          DateTime? @db.Date
-
-
 }
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model tipo_socio {
-  codigo      String @id  @db.VarChar(254)
+  codigo      String  @id @db.VarChar(254)
   nombre      String? @db.VarChar(254)
   codigocont  String? @db.VarChar(254)
   carnet      String? @db.VarChar(254)
   codcontcaja String? @db.VarChar(254)
   predeter    Float?
   nousaweb    Float?
-
 }

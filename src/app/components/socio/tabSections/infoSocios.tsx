@@ -61,7 +61,7 @@ function InfoSocios(dataSocios: any) {
         <DatosP nombre="direccion" dato={datos.direccion}/>
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
-        <AccordionTrigger>Contactos</AccordionTrigger>
+        <AccordionTrigger className='bg-slate-300 p-2 rounded-sm mb-2'>Contactos</AccordionTrigger>
           <AccordionContent>
       <DatosP nombre="telefono del trabajo" dato={datos.trabtelefon}/>
       <DatosP nombre="telefono movil" dato={datos.telefono_movil}/>
@@ -73,7 +73,7 @@ function InfoSocios(dataSocios: any) {
       </Accordion>
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
-        <AccordionTrigger>Fechas</AccordionTrigger>
+        <AccordionTrigger className='bg-slate-300 p-2 rounded-sm'>Fechas</AccordionTrigger>
           <AccordionContent>
             <DatosP nombre="fecha de exoneracion" dato={datos.fch_exon ? datos.fch_exon.toLocaleDateString() : 'sin fecha'}/>
             <DatosP nombre="fecha de vencimiento de la accion" dato={datos.fin? datos.fin.toLocaleDateString() :'sin fecha'}/>

@@ -29,7 +29,13 @@ export function TabsDemo( data: any) {
   
 // informacion personal de socios 
   const datos = data.data.socio
-  const direccion = datos.foto;
+
+  console.log(datos)
+
+
+  const direccion = datos.foto != null? datos.foto : '';
+  
+
   const partes = direccion?.split('\\');
   const foto = partes != undefined? partes[partes.length - 1] : "" ;
 
