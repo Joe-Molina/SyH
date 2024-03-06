@@ -41,7 +41,7 @@ function InfoSocios(dataSocios: any) {
         <DatosP nombre="accion n°" dato={datos.codigo} />
         <DatosP nombre="cedula" dato={datos.cedula} />
         <DatosP nombre="estatus" dato={status(datos.estatus)}/>
-        <DatosP nombre="fecha inicio" dato={datos.fecha ? datos.fch_exon.toLocaleDateString() : 'sin fecha'}/>
+        <DatosP nombre="fecha inicio" dato={datos.fecha ? datos.fecha.toLocaleDateString() : 'sin fecha'}/>
         <DatosP nombre="fecha fin" dato={datos.fin? datos.fin.toLocaleDateString() :'no aplica'}/>
         <DatosP nombre="rif" dato={datos.nrorif}/>
         <DatosP nombre="telefono" dato={datos.telefonos}/>
