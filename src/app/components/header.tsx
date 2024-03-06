@@ -22,7 +22,7 @@ function Heeader() {
       </div>
       <div>
       {Object.values(links).map((link) => (
-        <Link href={link.url} className='p-2  my-3 mr-3'> {link.name} </Link>
+        <Link href={link.url} className='p-2  my-3 mr-3' key={link.name}> {link.name} </Link>
       ))}
       </div>
     </section>

@@ -3,6 +3,7 @@
 import React from "react"
 import Link from "next/link"
 import { useState } from "react"
+import { Key } from "lucide-react"
 
 export const Buscador = (socios: any) => {
 
@@ -46,14 +47,14 @@ export const Buscador = (socios: any) => {
             
                    { !stwich? 
                    results.map((socio: any) => (
-                        <Link className='flex my-1 items-center border-b border-b-gray-200 hover:bg-gray-200' href={`/socios/${socio.codigo}`}>
+                        <Link className='flex my-1 items-center border-b border-b-gray-200 hover:bg-gray-200' href={`/socios/${socio.codigo}`} key={socio.codigo}>
                             <p className='py-1 px-3 text-sm rounded-xl mx-2 font-bold'>{socio.codigo}</p>
                             <p className='py-1 px-3 text-sm rounded-xl mx-2'>{socio.nombre}</p>
                         </Link>
                     ))
                     : 
                     resultsCodigo.map((socio: any) => (
-                        <Link className='flex my-1 items-center border-b border-b-gray-200 hover:bg-gray-200' href={`/socios/${socio.codigo}`}>
+                        <Link className='flex my-1 items-center border-b border-b-gray-200 hover:bg-gray-200' href={`/socios/${socio.codigo}`} key={socio.codigo}>
                             <p className='py-1 px-3 text-sm rounded-xl mx-2 font-bold'>{socio.codigo}</p>
                             <p className='py-1 px-3 text-sm rounded-xl mx-2'>{socio.nombre}</p>
                         </Link>

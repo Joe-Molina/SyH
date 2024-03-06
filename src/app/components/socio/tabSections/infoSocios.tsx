@@ -41,6 +41,8 @@ function InfoSocios(dataSocios: any) {
         <DatosP nombre="accion n°" dato={datos.codigo} />
         <DatosP nombre="cedula" dato={datos.cedula} />
         <DatosP nombre="estatus" dato={status(datos.estatus)}/>
+        <DatosP nombre="fecha inicio" dato={datos.fecha ? datos.fch_exon.toLocaleDateString() : 'sin fecha'}/>
+        <DatosP nombre="fecha fin" dato={datos.fin? datos.fin.toLocaleDateString() :'no aplica'}/>
         <DatosP nombre="rif" dato={datos.nrorif}/>
         <DatosP nombre="telefono" dato={datos.telefonos}/>
         <DatosP nombre="email" dato={datos.email}/>
@@ -76,7 +78,6 @@ function InfoSocios(dataSocios: any) {
         <AccordionTrigger className='bg-slate-300 p-2 rounded-sm'>Fechas</AccordionTrigger>
           <AccordionContent>
             <DatosP nombre="fecha de exoneracion" dato={datos.fch_exon ? datos.fch_exon.toLocaleDateString() : 'sin fecha'}/>
-            <DatosP nombre="fecha de vencimiento de la accion" dato={datos.fin? datos.fin.toLocaleDateString() :'sin fecha'}/>
             <DatosP nombre="fecha de emision del carnet" dato={datos.feemicrnt? datos.feemicrnt.toLocaleDateString() : 'sin fecha'}/>
             <DatosP nombre="fecha de vencimiento del carnet" dato={datos.fevnccrnt? datos.fevnccrnt.toLocaleDateString() : 'sin fecha'}/>
             <DatosP nombre="fecha de nacimiento" dato={datos.fechanac? datos.fechanac.toLocaleDateString() : 'sin fecha'} />
