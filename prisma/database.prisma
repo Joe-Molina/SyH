@@ -1,0 +1,44 @@
+model users {
+    id       Int    @id @default(autoincrement())
+    email    String @unique
+    username String
+    password String
+}
+
+model socios {
+    codigo         String    @id @db.VarChar(254)
+    nombre         String?   @db.VarChar(254)
+    cedula         String?   @db.VarChar(254)
+    nrorif         String?   @db.VarChar(254)
+    nronit         String?   @db.VarChar(254)
+    referenc1      String?   @db.VarChar(254)
+    referenc2      String?   @db.VarChar(254)
+    direccion      String?   @db.VarChar(254)
+    telefonos      String?   @db.VarChar(254)
+    numerofax      String?   @db.VarChar(254)
+    fecha          DateTime? @db.Date
+    perscont       String?   @db.VarChar(254)
+    estatus        Float?
+    nota           String?   @db.VarChar(254)
+    email          String?   @db.VarChar(254)
+    wwwcli         String?   @db.VarChar(254)
+    tipo           String?   @db.VarChar(254)
+    direccobro     String?   @db.LongText
+    direcenvio     String?   @db.LongText
+    sexo           BigInt?
+    nacionalida    String?   @db.VarChar(254)
+    fechanac       DateTime? @db.Date
+    edocivil       Float?
+    telhabitaci    String?   @db.VarChar(254)
+    celular        String?   @db.VarChar(254)
+    trabempresa    String?   @db.VarChar(254)
+    trabtelefon    String?   @db.VarChar(254)
+    telefono_movil String?   @db.VarChar(254)
+    carnet         String?   @db.VarChar(254)
+    feemicrnt      DateTime? @db.Date
+    fevnccrnt      DateTime? @db.Date
+    foto           String?   @db.VarChar(254)
+    exonerado      BigInt?
+    fch_exon       DateTime? @db.Date
+    fin            DateTime? @db.Date
+}

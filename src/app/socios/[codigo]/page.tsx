@@ -1,8 +1,10 @@
 import React from 'react'
 import {prisma} from './../../libs/prisma'
 import { TabsDemo } from '@/app/components/socio/tab'
+import { loginIsRequiredServer } from '@/app/api/auth/[...nextauth]/route'
 
 const socioData = async (codigo: string) => {
+  await loginIsRequiredServer()
 
   const socio = await prisma.socios.findFirst({
     where: {
@@ -15,6 +17,8 @@ const socioData = async (codigo: string) => {
       codigo_socios: codigo
     }
   })
+
+
 
   return {socio, familiares}
 }

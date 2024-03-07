@@ -18,10 +18,10 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 import InfoSocios from "./tabSections/infoSocios"
-
 import InfoFamiliares from '@/app/components/socio/tabSections/infoFamiliares'
-
-
+import Back from '@/app/components/header/BackButton'
+import Link from 'next/link'
+import {useState} from 'react'
 export function TabsDemo( data: any) {
   // informacion sobre los familiares de los socios
   const dataf = data.data.familiares
@@ -30,8 +30,6 @@ export function TabsDemo( data: any) {
 // informacion personal de socios 
   const datos = data.data.socio
 
-  console.log(datos)
-
 
   const direccion = datos.foto != null? datos.foto : '';
   
@@ -39,12 +37,28 @@ export function TabsDemo( data: any) {
   const partes = direccion?.split('\\');
   const foto = partes != undefined? partes[partes.length - 1] : "" ;
 
+  const [loading, setLoading] = useState(false)
+
+  const handleCLick2 = () =>{
+      setLoading(!loading)
+      console.log(loading)
+  }
+
   return (
     <Tabs defaultValue="Informacion personal" className="mx-3 mt-3">
-      <TabsList className="grid w-full grid-cols-3">
+    {
+      loading? 
+      <div className="font-bold text-3xl">cargando...</div>
+
+      :
+      <div>
+      <div className="flex justify-between">
+      <Back/>
+      <Link href={"/facturas/" + datos.codigo}  className="px-4 py-2 bg-zinc-900 text-white rounded-md m-4 hover:scale-105 transition" onClick={handleCLick2}>facturas</Link>
+      </div>
+                <TabsList className="grid w-full grid-cols-2">
         <TabsTrigger value="Informacion personal">Informacion personal</TabsTrigger>
         <TabsTrigger value="Familiares">Familiares</TabsTrigger>
-        <TabsTrigger value="Facturas">Facturas</TabsTrigger>
       </TabsList>
       <TabsContent value="Informacion personal">
         <Card>
@@ -63,20 +77,8 @@ export function TabsDemo( data: any) {
       <TabsContent value="Familiares">
        <InfoFamiliares dataFamiliares={dataf}/>
       </TabsContent>
-      <TabsContent value="Facturas">
-        <Card>
-          <CardHeader>
-            <CardTitle>Facturas</CardTitle>
-            <CardDescription>
-              Aca se presentaran las facturas...
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-          </CardContent>
-          <CardFooter>
-          </CardFooter>
-        </Card>
-      </TabsContent>
+        </div>
+      }
     </Tabs>
   )
 }

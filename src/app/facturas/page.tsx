@@ -1,6 +1,9 @@
 import React from 'react'
+import { loginIsRequiredServer } from '../api/auth/[...nextauth]/route'
 
-function facturasPage() {
+async function facturasPage() {
+
+  await loginIsRequiredServer()
   return (
     <div>facturasPage</div>
   )

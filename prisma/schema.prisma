@@ -8,13 +8,213 @@ datasource db {
 }
 
 model users {
-  id       Int    @id @default(autoincrement())
-  email    String @unique
-  username String
-  password String
+  id       Int     @id @default(autoincrement())
+  username String? @db.VarChar(25)
+  email    String? @db.VarChar(255)
+  password String? @db.VarChar(255)
 }
 
-model Articulo {
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model conceptos_fijos_tipo_socio {
+  vista       String?   @db.VarChar(254)
+  codigo      String?   @db.VarChar(254)
+  codigoart   String?   @db.VarChar(254)
+  fch_vig     DateTime? @db.Date
+  mto_cpto    Float?
+  ptj_mora    Float?
+  mto_mora    Float?
+  art_mora    String?   @db.VarChar(254)
+  ult_pago    Float?
+  acceso      Float?
+  edad_lim    Float?
+  ptj_inc_eda Float?
+  edad_desde  Float?
+  codcliente  String?   @db.VarChar(254)
+  aplica_mtov Float?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model familiares {
+  codigo_socios     String?   @db.VarChar(254)
+  codigo_familiares String    @id @db.VarChar(254)
+  nombre            String?   @db.VarChar(254)
+  rutafoto          String?   @db.VarChar(254)
+  fechanac          DateTime? @db.Date
+  codigo_parentesco String?   @db.VarChar(254)
+  cedula            String?   @db.VarChar(254)
+  fvence            DateTime? @db.Date
+  direccion         String?   @db.VarChar(254)
+  telefono_movil    String?   @db.VarChar(254)
+  email             String?   @db.VarChar(254)
+  cod               String?   @db.VarChar(254)
+  carnet            String?   @db.VarChar(254)
+  feemicrnt         DateTime? @db.Date
+  fevnccrnt         DateTime? @db.Date
+  foto              String?   @db.VarChar(254)
+  sexo              BigInt?
+  estatus           Int?
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model grupos {
+  codigo       String?   @db.VarChar(254)
+  nombre       String?   @db.VarChar(254)
+  tcantidad    Float?
+  tfacturado   Float?
+  usatalla     Float?
+  usacolor     Float?
+  prcutil      Float?
+  descuento    Float?
+  formato      String?   @db.VarChar(254)
+  ctacontinv   String?   @db.VarChar(254)
+  ctacontcost  String?   @db.VarChar(254)
+  ctacontingr  String?   @db.VarChar(254)
+  oculto_rest  Float?
+  noaplicarec  Float?
+  formato2     String?   @db.VarChar(254)
+  grpcolor     Float?
+  hereda_prop  Float?
+  imp_mto_cmd  Float?
+  imp_mto_cmd1 Float?
+  delimitador  String?   @db.VarChar(254)
+  longitud_co  Float?
+  ctacontdevo  String?   @db.VarChar(254)
+  rutafoto     String?   @db.VarChar(254)
+  nombre_cort  String?   @db.VarChar(254)
+  prcarancel   Float?
+  eslicores    Int?
+  fechamodifi  DateTime? @db.Date
+  ctacontdevc  String?   @db.VarChar(254)
+  codcont_cmx  String?   @db.VarChar(254)
+  referencia   String?   @db.VarChar(254)
+  nousaweb     Float?
+  notas        String?   @db.LongText
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model mae_ultimo_pago {
+  tipodoc    String?   @db.VarChar(254)
+  documento  String?   @db.VarChar(254)
+  fechadoc   DateTime? @db.Date
+  codcliente String?   @db.VarChar(254)
+  emision    DateTime? @db.Date
+  codigo     String?   @db.VarChar(254)
+  pid        String?   @db.VarChar(254)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model parentesco_familiares {
+  codigo String? @db.VarChar(254)
+  nombre String? @db.VarChar(254)
+  carnet String? @db.VarChar(254)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model socios {
+  codigo         String    @id @db.VarChar(254)
+  nombre         String?   @db.VarChar(254)
+  cedula         String?   @db.VarChar(254)
+  nrorif         String?   @db.VarChar(254)
+  nronit         String?   @db.VarChar(254)
+  referenc1      String?   @db.VarChar(254)
+  referenc2      String?   @db.VarChar(254)
+  direccion      String?   @db.VarChar(254)
+  telefonos      String?   @db.VarChar(254)
+  numerofax      String?   @db.VarChar(254)
+  fecha          DateTime? @db.Date
+  perscont       String?   @db.VarChar(254)
+  estatus        Float?
+  nota           String?   @db.VarChar(254)
+  email          String?   @db.VarChar(254)
+  wwwcli         String?   @db.VarChar(254)
+  tipo           String?   @db.VarChar(254)
+  direccobro     String?   @db.LongText
+  direcenvio     String?   @db.LongText
+  sexo           BigInt?
+  nacionalida    String?   @db.VarChar(254)
+  fechanac       DateTime? @db.Date
+  edocivil       Float?
+  telhabitaci    String?   @db.VarChar(254)
+  celular        String?   @db.VarChar(254)
+  trabempresa    String?   @db.VarChar(254)
+  trabtelefon    String?   @db.VarChar(254)
+  telefono_movil String?   @db.VarChar(254)
+  carnet         String?   @db.VarChar(254)
+  feemicrnt      DateTime? @db.Date
+  fevnccrnt      DateTime? @db.Date
+  foto           String?   @db.VarChar(254)
+  exonerado      BigInt?
+  fch_exon       DateTime? @db.Date
+  fin            DateTime? @db.Date
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model suspensiones_familiares {
+  idsus            Int?
+  codigo           String?   @db.VarChar(254)
+  Nombreyapelllido String?   @db.VarChar(254)
+  fch_suspen       DateTime? @db.Date
+  dias             Int?
+  fch_vcto         DateTime? @db.Date
+  cod_mot          String?   @db.VarChar(254)
+  notas            String?   @db.LongText
+  Actjunta         Int?
+  ActTD            Int?
+  status           Int?
+  ingreso          DateTime? @db.Date
+  cedula           String?   @db.VarChar(254)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model suspensiones_motivos {
+  cod_mot String? @db.VarChar(254)
+  descr   String? @db.VarChar(254)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model suspensiones_socios {
+  idsus            Int?
+  codigo           String?   @db.VarChar(254)
+  Nombreyapelllido String?   @db.VarChar(254)
+  fch_suspen       DateTime? @db.Date
+  dias             Int?
+  fch_vcto         DateTime? @db.Date
+  cod_mot          String?   @db.VarChar(254)
+  notas            String?   @db.LongText
+  Actjunta         Int?
+  ActTD            Int?
+  status           Int?
+  ingreso          DateTime? @db.Date
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model tipo_socio {
+  codigo      String? @db.VarChar(254)
+  nombre      String? @db.VarChar(254)
+  codigocont  String? @db.VarChar(254)
+  carnet      String? @db.VarChar(254)
+  codcontcaja String? @db.VarChar(254)
+  predeter    Float?
+  nousaweb    Float?
+
+  @@ignore
+}
+
+model articulo {
   codigo      String    @id @db.VarChar(254)
   grupo       String?   @db.VarChar(254)
   subgrupo    String?   @db.VarChar(254)
@@ -210,186 +410,258 @@ model Articulo {
   formato2    String?   @db.VarChar(254)
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model conceptos_fijos_tipo_socio {
-  vista       String?   @db.VarChar(254)
-  codigo      String    @id @db.VarChar(254)
-  codigoart   String?   @db.VarChar(254)
-  fch_vig     DateTime? @db.Date
-  mto_cpto    Float?
-  ptj_mora    Float?
-  mto_mora    Float?
-  art_mora    String?   @db.VarChar(254)
-  ult_pago    Float?
-  acceso      Float?
-  edad_lim    Float?
-  ptj_inc_eda Float?
-  edad_desde  Float?
-  codcliente  String?   @db.VarChar(254)
-  aplica_mtov Float?
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model factura_detail {
+  id                Int      @id @default(autoincrement())
+  id_empresa        String   @db.VarChar(6)
+  agencia           String   @default(" ") @db.VarChar(3)
+  tipodoc           String   @db.VarChar(3)
+  documento         String   @db.VarChar(8)
+  grupo             String?  @default(" ") @db.VarChar(6)
+  subgrupo          String?  @default(" ") @db.VarChar(6)
+  origen            Float    @default(0)
+  codigo            String   @db.VarChar(25)
+  codhijo           String?  @default(" ") @db.VarChar(25)
+  pid               String   @db.VarChar(12)
+  nombre            String?  @default(" ") @db.VarChar(80)
+  costounit         Float    @default(0.0000000)
+  preciounit        Float    @default(0.0000000)
+  diferencia        Float    @default(0.0000000)
+  dsctounit         Float    @default(0.0000000)
+  dsctoprc          Float    @default(0.0000000)
+  dsctoendm         Float    @default(0.0000000)
+  dsctoendp         Float    @default(0.0000000)
+  preciofin         Float    @default(0.0000000)
+  prcrecargo        Float    @default(0.0000000)
+  recargounit       Float    @default(0.0000000)
+  preciooriginal    Float    @default(0.0000000)
+  cantidad          Float    @default(0.0000000)
+  cntdevuelt        Float    @default(0.0000000)
+  cntentrega        Float    @default(0.0000000)
+  tallas            String?  @default(" ") @db.VarChar(3)
+  colores           String?  @default(" ") @db.VarChar(3)
+  montoneto         Float    @default(0.0000000)
+  montototal        Float    @default(0.0000000)
+  almacen           String   @default("01") @db.VarChar(2)
+  proveedor         String   @default(" ") @db.VarChar(15)
+  fechadoc          DateTime @default(dbgenerated("'0000-00-00'")) @db.Date
+  impuesto1         Float    @default(0.0000000)
+  impuesto2         Float    @default(0.0000000)
+  impuesto3         Float    @default(0.0000000)
+  impuesto4         Float    @default(0.0000000)
+  impuesto5         Float    @default(0.0000000)
+  impuesto6         Float    @default(0.0000000)
+  timpueprc         Float    @default(0.0000000)
+  impu_mto          Float    @default(0.0000000)
+  comision          Float    @default(0.0000000)
+  comisprc          Float    @default(0.0000000)
+  vendedor          String?  @default(" ") @db.VarChar(8)
+  emisor            String?  @default("") @db.VarChar(20)
+  usaserial         Float    @default(0)
+  tipoprecio        Float    @default(0)
+  unidad            String?  @default(" ") @db.VarChar(25)
+  agrupado          Float    @default(0)
+  cntagrupada       Float    @default(0.0000000)
+  seimporto         Float    @default(0)
+  desdeimpor        String?  @default(" ") @db.VarChar(11)
+  notas             String?  @default("") @db.VarChar(255)
+  oferta            Float    @default(0)
+  compuesto         Float    @default(0)
+  usaexist          Float    @default(0)
+  marca             Float    @default(0)
+  aux1              Float    @default(0.0000000)
+  estacion          String?  @default(" ") @db.VarChar(3)
+  clasifica         Float    @default(0)
+  cuentacont        String?  @default(" ") @db.VarChar(40)
+  placa             String?  @default(" ") @db.VarChar(8)
+  udinamica         Float    @default(0)
+  cantref           Float    @default(0.0000000)
+  unidadref         String?  @default(" ") @db.VarChar(15)
+  baseimpo1         Float    @default(0.0000000)
+  baseimpo2         Float    @default(0.0000000)
+  baseimpo3         Float    @default(0.0000000)
+  lote              String?  @default(" ") @db.VarChar(30)
+  imp_nacional      Float    @default(0.0000000)
+  imp_producc       Float    @default(0.0000000)
+  se_imprimio       Float    @default(0)
+  ofertaconvenio    Float    @default(0.0000000)
+  cod_servidor      String?  @default(" ") @db.VarChar(8)
+  prc_comi_servidor Float?   @default(0.0000000)
+  mto_comi_servidor Float?   @default(0.0000000)
+  notas_comanda     String?  @default(" ") @db.VarChar(150)
+  orden             String?  @default(" ") @db.VarChar(12)
+  codpadre          String?  @default(" ") @db.VarChar(25)
+  fechayhora        DateTime @default(dbgenerated("'0000-00-00 00:00:00'")) @db.DateTime(0)
+  coddescuento      String?  @default(" ") @db.VarChar(6)
+  dsctomtolinea     Float    @default(0.0000000)
+  unidevuelt        Float    @default(0.0000000)
+  estacionfac       String?  @default(" ") @db.VarChar(3)
+  placaod           String?  @default(" ") @db.VarChar(20)
+  checkin           String?  @default(" ") @db.VarChar(12)
+  habi_nro          String?  @default(" ") @db.VarChar(12)
+  idvalidacion      String?  @default(" ") @db.VarChar(12)
+  idoferta          String?  @default(" ") @db.VarChar(8)
+  agenciant         String   @default(" ") @db.VarChar(3)
+  tipodocant        String   @default(" ") @db.VarChar(3)
+  documant          String   @default(" ") @db.VarChar(8)
+  uemisorant        String?  @default(" ") @db.VarChar(30)
+  estacioant        String?  @default(" ") @db.VarChar(3)
+  fechadocant       DateTime @default(dbgenerated("'0000-00-00'")) @db.Date
+  frog              Float    @default(0)
+  documentolocal    String   @default(" ") @db.VarChar(20)
+  linbloq           Int      @default(0) @db.TinyInt
+  enviado_kmonitor  Int      @default(1) @db.TinyInt
+  se_guardo         Int      @default(0) @db.TinyInt
+  baseimpo4         Float    @default(0.0000000)
+  baseimpo5         Float    @default(0.0000000)
+  baseimpo6         Float    @default(0.0000000)
 }
 
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model familiares {
-  codigo_socios     String?   @db.VarChar(254)
-  codigo_familiares String    @id @db.VarChar(254)
-  nombre            String?   @db.VarChar(254)
-  rutafoto          String?   @db.VarChar(254)
-  fechanac          DateTime? @db.Date
-  codigo_parentesco String?   @db.VarChar(254)
-  cedula            String?   @db.VarChar(254)
-  fvence            DateTime? @db.Date
-  direccion         String?   @db.VarChar(254)
-  telefono_movil    String?   @db.VarChar(254)
-  email             String?   @db.VarChar(254)
-  cod               String?   @db.VarChar(254)
-  carnet            String?   @db.VarChar(254)
-  feemicrnt         DateTime? @db.Date
-  fevnccrnt         DateTime? @db.Date
-  foto              String?   @db.VarChar(254)
-  sexo              BigInt?
-  estatus           Int?
-}
-
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model grupos {
-  codigo       String    @id @db.VarChar(254)
-  nombre       String?   @db.VarChar(254)
-  tcantidad    Float?
-  tfacturado   Float?
-  usatalla     Float?
-  usacolor     Float?
-  prcutil      Float?
-  descuento    Float?
-  formato      String?   @db.VarChar(254)
-  ctacontinv   String?   @db.VarChar(254)
-  ctacontcost  String?   @db.VarChar(254)
-  ctacontingr  String?   @db.VarChar(254)
-  oculto_rest  Float?
-  noaplicarec  Float?
-  formato2     String?   @db.VarChar(254)
-  grpcolor     Float?
-  hereda_prop  Float?
-  imp_mto_cmd  Float?
-  imp_mto_cmd1 Float?
-  delimitador  String?   @db.VarChar(254)
-  longitud_co  Float?
-  ctacontdevo  String?   @db.VarChar(254)
-  rutafoto     String?   @db.VarChar(254)
-  nombre_cort  String?   @db.VarChar(254)
-  prcarancel   Float?
-  eslicores    Int?
-  fechamodifi  DateTime? @db.Date
-  ctacontdevc  String?   @db.VarChar(254)
-  codcont_cmx  String?   @db.VarChar(254)
-  referencia   String?   @db.VarChar(254)
-  nousaweb     Float?
-  notas        String?   @db.LongText
-}
-
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model mae_ultimo_pago {
-  tipodoc    String?   @db.VarChar(254)
-  documento  String?   @db.VarChar(254)
-  fechadoc   DateTime? @db.Date
-  codcliente String?   @db.VarChar(254)
-  emision    DateTime? @db.Date
-  codigo     String    @id @db.VarChar(254)
-  pid        String?   @db.VarChar(254)
-}
-
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model parentesco_familiares {
-  codigo String  @id @db.VarChar(254)
-  nombre String? @db.VarChar(254)
-  carnet String? @db.VarChar(254)
-}
-
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model socios {
-  codigo         String    @id @db.VarChar(254)
-  nombre         String?   @db.VarChar(254)
-  cedula         String?   @db.VarChar(254)
-  nrorif         String?   @db.VarChar(254)
-  nronit         String?   @db.VarChar(254)
-  referenc1      String?   @db.VarChar(254)
-  referenc2      String?   @db.VarChar(254)
-  direccion      String?   @db.VarChar(254)
-  telefonos      String?   @db.VarChar(254)
-  numerofax      String?   @db.VarChar(254)
-  fecha          DateTime? @db.Date
-  perscont       String?   @db.VarChar(254)
-  estatus        Float?
-  nota           String?   @db.VarChar(254)
-  email          String?   @db.VarChar(254)
-  wwwcli         String?   @db.VarChar(254)
-  tipo           String?   @db.VarChar(254)
-  direccobro     String?   @db.LongText
-  direcenvio     String?   @db.LongText
-  sexo           BigInt?
-  nacionalida    String?   @db.VarChar(254)
-  fechanac       DateTime? @db.Date
-  edocivil       Float?
-  telhabitaci    String?   @db.VarChar(254)
-  celular        String?   @db.VarChar(254)
-  trabempresa    String?   @db.VarChar(254)
-  trabtelefon    String?   @db.VarChar(254)
-  telefono_movil String?   @db.VarChar(254)
-  carnet         String?   @db.VarChar(254)
-  feemicrnt      DateTime? @db.Date
-  fevnccrnt      DateTime? @db.Date
-  foto           String?   @db.VarChar(254)
-  exonerado      BigInt?
-  fch_exon       DateTime? @db.Date
-  fin            DateTime? @db.Date
-}
-
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model suspensiones_familiares {
-  idsus            Int?
-  codigo           String    @id @db.VarChar(254)
-  Nombreyapelllido String?   @db.VarChar(254)
-  fch_suspen       DateTime? @db.Date
-  dias             Int?
-  fch_vcto         DateTime? @db.Date
-  cod_mot          String?   @db.VarChar(254)
-  notas            String?   @db.LongText
-  Actjunta         Int?
-  ActTD            Int?
-  status           Int?
-  ingreso          DateTime? @db.Date
-  cedula           String?   @db.VarChar(254)
-}
-
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model suspensiones_motivos {
-  cod_mot String  @id @db.VarChar(254)
-  descr   String? @db.VarChar(254)
-}
-
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model suspensiones_socios {
-  idsus            Int?
-  codigo           String    @id @db.VarChar(254)
-  Nombreyapelllido String?   @db.VarChar(254)
-  fch_suspen       DateTime? @db.Date
-  dias             Int?
-  fch_vcto         DateTime? @db.Date
-  cod_mot          String?   @db.VarChar(254)
-  notas            String?   @db.LongText
-  Actjunta         Int?
-  ActTD            Int?
-  status           Int?
-  ingreso          DateTime? @db.Date
-}
-
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model tipo_socio {
-  codigo      String  @id @db.VarChar(254)
-  nombre      String? @db.VarChar(254)
-  codigocont  String? @db.VarChar(254)
-  carnet      String? @db.VarChar(254)
-  codcontcaja String? @db.VarChar(254)
-  predeter    Float?
-  nousaweb    Float?
+model factura_header {
+  id_empresa           String    @default("") @db.VarChar(6)
+  agencia              String    @default(" ") @db.VarChar(3)
+  tipodoc              String    @default("") @db.VarChar(3)
+  moneda               String?   @default(" ") @db.VarChar(3)
+  documento            String    @id @default("") @db.VarChar(8)
+  codcliente           String    @default(" ") @db.VarChar(15)
+  nombrecli            String?   @default(" ") @db.VarChar(100)
+  contacto             String?   @default(" ") @db.VarChar(30)
+  comprador            String?   @default(" ") @db.VarChar(20)
+  rif                  String?   @default(" ") @db.VarChar(14)
+  nit                  String?   @default(" ") @db.VarChar(14)
+  direccion            String?   @default(" ") @db.VarChar(200)
+  telefonos            String?   @default(" ") @db.VarChar(50)
+  tipoprecio           Float     @default(0)
+  orden                String?   @default(" ") @db.VarChar(15)
+  emision              DateTime  @db.Date
+  recepcion            DateTime? @db.Date
+  vence                DateTime? @db.Date
+  ult_interes          DateTime? @db.Date
+  fechacrea            DateTime? @db.Date
+  totcosto             Float     @default(0.0000000)
+  totcomi              Float     @default(0.0000000)
+  totbruto             Float     @default(0.0000000)
+  totneto              Float     @default(0.0000000)
+  totpagos             Float     @default(0.0000000)
+  totalfinal           Float     @default(0.0000000)
+  totimpuest           Float     @default(0.0000000)
+  totdescuen           Float     @default(0.0000000)
+  impuesto1            Float     @default(0.0000000)
+  impuesto2            Float     @default(0.0000000)
+  impuesto3            Float     @default(0.0000000)
+  impuesto4            Float     @default(0.0000000)
+  impuesto5            Float     @default(0.0000000)
+  impuesto6            Float     @default(0.0000000)
+  recargos             Float     @default(0.0000000)
+  dsctoend1            Float     @default(0.0000000)
+  dsctoend2            Float     @default(0.0000000)
+  dsctolinea           Float     @default(0.0000000)
+  notas                String?   @db.Text
+  estatusdoc           String    @default("") @db.Char(1)
+  ultimopag            DateTime? @db.Date
+  diascred             Float     @default(0)
+  vendedor             String?   @default(" ") @db.VarChar(8)
+  factorcamb           Float     @default(0.0000000)
+  multi_div            Float     @default(0)
+  factorreferencial    Float     @default(0.0000000)
+  fechanul             DateTime? @db.Date
+  uanulador            String?   @default("") @db.VarChar(12)
+  uemisor              String?   @default(" ") @db.VarChar(10)
+  estacion             String?   @default(" ") @db.VarChar(3)
+  sinimpuest           Float     @default(0.0000000)
+  almacen              String?   @default(" ") @db.VarChar(2)
+  sector               String?   @default(" ") @db.VarChar(6)
+  formafis             Float     @default(0)
+  al_libro             Float     @default(0)
+  codigoret            String?   @default(" ") @db.VarChar(3)
+  retencion            Float     @default(0.0000000)
+  aux1                 Float     @default(0.0000000)
+  aux2                 Float     @default(0.0000000)
+  aplicadoa            String?   @default(" ") @db.VarChar(11)
+  referencia           String?   @default(" ") @db.VarChar(20)
+  operac               String?   @default(" ") @db.VarChar(3)
+  motanul              String?   @db.Text
+  seimporto            Float     @default(0)
+  dbcr                 Float     @default(0)
+  horadocum            String?   @default(" ") @db.VarChar(5)
+  ampm                 Float     @default(0)
+  tranferido           Float     @default(0)
+  procedecre           Float     @default(0)
+  entregado            Float     @default(0)
+  vuelto               Float     @default(0.0000000)
+  integrado            Float     @default(0)
+  escredito            Float     @default(0)
+  seq_nodo             String?   @default(" ") @db.VarChar(10)
+  tipo_nc              String?   @default(" ") @db.VarChar(3)
+  porbackord           Float     @default(0)
+  chequedev            Float     @default(0)
+  ordentrab            String?   @default(" ") @db.VarChar(8)
+  compcont             String?   @default(" ") @db.VarChar(20)
+  planillacob          String?   @default(" ") @db.VarChar(8)
+  nodoremoto           String?   @default(" ") @db.VarChar(3)
+  turno                String?   @default(" ") @db.VarChar(2)
+  codvend_a            String?   @default(" ") @db.VarChar(8)
+  codvend_b            String?   @default(" ") @db.VarChar(8)
+  codvend_c            String?   @default(" ") @db.VarChar(8)
+  codvend_d            String?   @default(" ") @db.VarChar(8)
+  baseimpo1            Float     @default(0.0000000)
+  baseimpo2            Float     @default(0.0000000)
+  baseimpo3            Float     @default(0.0000000)
+  iddocumento          String?   @default(" ") @db.VarChar(8)
+  imp_nacional         Float     @default(0.0000000)
+  imp_producc          Float     @default(0.0000000)
+  retencioniva         Float     @default(0.0000000)
+  fechayhora           DateTime? @db.DateTime(0)
+  tipopersona          Float     @default(0)
+  idvalidacion         String?   @db.VarChar(12)
+  nosujeto             Float     @default(0)
+  serialprintf         String?   @default(" ") @db.VarChar(25)
+  documentofiscal      String?   @default(" ") @db.VarChar(12)
+  refmanual            String?   @default(" ") @db.VarChar(20)
+  doc_class_id         String?   @default(" ") @db.VarChar(30)
+  numeroz              String    @default(" ") @db.VarChar(8)
+  ubica                String?   @default(" ") @db.VarChar(30)
+  usa_despacho         Float     @default(0)
+  despachador          String?   @default(" ") @db.VarChar(15)
+  despacho_nro         String    @default("") @db.VarChar(8)
+  checkin              String?   @default(" ") @db.VarChar(12)
+  nureserva            String?   @default(" ") @db.VarChar(12)
+  grandocnum           String    @default(" ") @db.VarChar(8)
+  agenciant            String    @default(" ") @db.VarChar(3)
+  tipodocant           String    @default(" ") @db.VarChar(3)
+  documant             String    @default(" ") @db.VarChar(8)
+  uemisorant           String?   @default(" ") @db.VarChar(30)
+  estacioant           String?   @default(" ") @db.VarChar(3)
+  emisionant           DateTime? @db.Date
+  fchyhrant            DateTime? @db.DateTime(0)
+  frog                 Float     @default(0)
+  apa_nc               Float     @default(0)
+  documentolocal       String    @default(" ") @db.VarChar(20)
+  comanda_movil        Int       @default(1) @db.TinyInt
+  comanda_kmonitor     Int       @default(1) @db.TinyInt
+  para_llevar          Int       @default(0) @db.TinyInt
+  notimbrar            Int       @default(0) @db.TinyInt
+  antipo               String    @default(" ") @db.VarChar(3)
+  antdoc               String    @default(" ") @db.VarChar(8)
+  xrequest             String?   @db.LongText
+  xresponse            String?   @db.LongText
+  parcialidad          Float     @default(0)
+  cedcompra            String?   @default(" ") @db.VarChar(14)
+  subcodigo            String    @default("") @db.VarChar(6)
+  cprefijoserie        String    @default("") @db.VarChar(4)
+  contingencia         Boolean   @default(false)
+  precta_movil         Boolean   @default(false)
+  tipodocfiscal        Boolean   @default(false)
+  cprefijodeserie      String    @default(" ") @db.VarChar(4)
+  cserie               String    @default(" ") @db.VarChar(2)
+  serieIncluyeimpuesto Int       @default(0) @db.TinyInt
+  serieauto            Boolean   @default(false)
+  opemail              String    @default("") @db.VarChar(150)
+  subtipodoc           String    @default("") @db.VarChar(2)
+  refmanual2           String?   @default(" ") @db.VarChar(30)
+  baseimpo4            Float     @default(0.0000000)
+  baseimpo5            Float     @default(0.0000000)
+  baseimpo6            Float     @default(0.0000000)
 }

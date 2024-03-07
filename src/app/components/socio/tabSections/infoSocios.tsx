@@ -11,7 +11,7 @@ import {
   } from "@/components/ui/accordion"
 
   
-const DatosP = (dato: any, nombre: any) => {
+const DatosP = (dato: any) => {
         
           return(
             <div className="  text-sm mx-2  flex justify-evenly items-start  px-2 py-1 my-2 flex-col"> 
@@ -37,6 +37,7 @@ function InfoSocios(dataSocios: any) {
     }
 
   return (
+
     <CardContent className=" my-1 flex flex-row flex-wrap border-b border-b-gray-200 justify-start">
         <DatosP nombre="accion n°" dato={datos.codigo} />
         <DatosP nombre="cedula" dato={datos.cedula} />
@@ -64,7 +65,7 @@ function InfoSocios(dataSocios: any) {
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
         <AccordionTrigger className='bg-slate-300 p-2 rounded-sm mb-2'>Contactos</AccordionTrigger>
-          <AccordionContent>
+          <AccordionContent className='flex '>
       <DatosP nombre="telefono del trabajo" dato={datos.trabtelefon}/>
       <DatosP nombre="telefono movil" dato={datos.telefono_movil}/>
       <DatosP nombre="telefono de habitacion" dato={datos.telhabitaci}/>
@@ -76,7 +77,7 @@ function InfoSocios(dataSocios: any) {
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
         <AccordionTrigger className='bg-slate-300 p-2 rounded-sm'>Fechas</AccordionTrigger>
-          <AccordionContent>
+          <AccordionContent className='flex '>
             <DatosP nombre="fecha de exoneracion" dato={datos.fch_exon ? datos.fch_exon.toLocaleDateString() : 'sin fecha'}/>
             <DatosP nombre="fecha de emision del carnet" dato={datos.feemicrnt? datos.feemicrnt.toLocaleDateString() : 'sin fecha'}/>
             <DatosP nombre="fecha de vencimiento del carnet" dato={datos.fevnccrnt? datos.fevnccrnt.toLocaleDateString() : 'sin fecha'}/>
