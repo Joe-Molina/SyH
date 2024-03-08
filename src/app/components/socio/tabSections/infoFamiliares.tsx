@@ -142,7 +142,7 @@ function InfoFamiliares(dataFamiliares: any) {
               <FamiliarCard data={familiar} key={index}/> : null
           ))}
         </div>
-        <h2 className='ml-3 text-4xl font-bold'>invitados</h2>
+        <h2 className='ml-3 text-4xl font-bold'>Pases</h2>
         <div className='flex flex-wrap'>
         {datosFamilia.map((familiar: any, index: any) => (
             (familiar.codigo_parentesco !== '08' && familiar.codigo_parentesco !== '10' && familiar.codigo_parentesco !== '11' && familiar.codigo_parentesco !== '12' && familiar.codigo_parentesco !== '13' && familiar.codigo_parentesco !== '14' && familiar.codigo_parentesco !== '15' && familiar.codigo_parentesco !== '16' && familiar.codigo_parentesco !== '20' && familiar.codigo_parentesco !== '21' && familiar.codigo_parentesco !== '22' && familiar.codigo_parentesco !== '23' && familiar.codigo_parentesco !== '24' && familiar.codigo_parentesco !== '25' && familiar.codigo_parentesco !== '26' && familiar.codigo_parentesco !== '27' && familiar.codigo_parentesco !== '37') ? 
