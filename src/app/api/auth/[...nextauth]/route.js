@@ -26,7 +26,7 @@ export const authOptions = {
 
         console.log(userFound)
 
-        const matchPassword = bcrypt.compare(credentials.password, userFound.password)
+        const matchPassword = await bcrypt.compare(credentials.password, userFound.password)
 
         console.log(matchPassword)
 
