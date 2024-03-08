@@ -13,7 +13,7 @@ async function Heeader() {
   return (
     <section className=' h-16 flex items-center justify-between border-b border-gray-200'>
       <div className='w-52 h-10 flex items-center justify-center'>
-        <p className='text-black font-extrabold'>Web SyH</p>
+        <p className='text-black font-extrabold'>SyH Data</p>
       </div>
       {session? <span className='px-5 py-1 bg-zinc-900 rounded-sm text-white '>Usuario: {session.user?.name}</span> : <div></div>}
       {session? <ButtonSignOut/> : ''}

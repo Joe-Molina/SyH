@@ -15,6 +15,8 @@ import {
  import Back from '@/app/components/header/BackButton'  
 
 async function FacturaSocioPage({ params: { codigo } }: { params: { codigo: string } }) {
+  
+  await loginIsRequiredServer()
 
     const socio = await prisma.socios.findFirst({
         where: {

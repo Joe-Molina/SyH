@@ -31,12 +31,7 @@ export function TabsDemo( data: any) {
   const datos = data.data.socio
 
 
-  const direccion = datos.foto != null? datos.foto : '';
   
-
-  const partes = direccion?.split('\\');
-  const foto = partes != undefined? partes[partes.length - 1] : "" ;
-
   const [loading, setLoading] = useState(false)
 
   const handleCLick2 = () =>{
@@ -62,13 +57,6 @@ export function TabsDemo( data: any) {
       </TabsList>
       <TabsContent value="Informacion personal">
         <Card>
-          <CardHeader>
-            <CardDescription>
-            <img src={ (foto != '')?'http://cimnet.com/fotocarnet/' + foto : 'error'} onError={(e) => {
-        e.target.src = '/avataricon.png'; }} className='w-32 h-32 rounded-md border' />
-            </CardDescription>
-            <CardTitle>{datos.nombre}</CardTitle>
-          </CardHeader>
           <InfoSocios dataSocios={datos}/>
           <CardFooter>
           </CardFooter>
