@@ -3,6 +3,7 @@ import NextAuth, { getServerSession } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from 'bcrypt'
 import { redirect } from 'next/navigation'
+import { signOut } from 'next-auth/react';
 
 export const authOptions = {
   providers: [
@@ -43,6 +44,7 @@ export const authOptions = {
   secret: process.env.SECRET,
   pages: {
     signIn: "/auth/login",
+    signOut: "/"
   }
 };
 

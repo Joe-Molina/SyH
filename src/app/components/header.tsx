@@ -11,7 +11,7 @@ async function Heeader() {
 
 
   return (
-    <section className=' h-16 flex items-center justify-between border-b border-gray-200'>
+    <section className='z-20 h-16 flex items-center justify-between border-b bg-white  border-gray-200 fixed top-0 left-0 w-full'>
       <div className='w-52 h-10 flex items-center justify-center'>
         <p className='text-black font-extrabold'>SyH Data</p>
       </div>

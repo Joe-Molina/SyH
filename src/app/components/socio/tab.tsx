@@ -56,11 +56,7 @@ export function TabsDemo( data: any) {
         <TabsTrigger value="Familiares">Familiares</TabsTrigger>
       </TabsList>
       <TabsContent value="Informacion personal">
-        <Card>
           <InfoSocios dataSocios={datos}/>
-          <CardFooter>
-          </CardFooter>
-        </Card>
       </TabsContent>
       <TabsContent value="Familiares">
        <InfoFamiliares dataFamiliares={dataf}/>

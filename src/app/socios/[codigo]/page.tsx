@@ -30,7 +30,7 @@ async function socioPage({ params: { codigo } }: { params: { codigo: string } })
 
 
   return (
-    <div>
+    <div className=''>
       <TabsDemo data={data}/>
     </div>
   )

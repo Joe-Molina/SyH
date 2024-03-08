@@ -29,7 +29,7 @@ async function FacturaSocioPage({ params: { codigo } }: { params: { codigo: stri
 
     const facturas = await prisma.factura_detail.findMany({
         where: {
-          proveedor: codigo,
+          proveedor: codigo
         },
         select: {
           nombre: true,
@@ -51,7 +51,7 @@ async function FacturaSocioPage({ params: { codigo } }: { params: { codigo: stri
 
 
   return (
-    <div className='max-h-[600px] overflow-auto m-4 border border-zinc-100 rounded-md mb-3'>
+    <div className='z-10 overflow-auto m-4 border border-zinc-100 rounded-md mb-3'>
     <Back/>
      <h2 className='p-3 text-3xl font-bold'>Facturas de {socio?.nombre}</h2>   
      <Table>

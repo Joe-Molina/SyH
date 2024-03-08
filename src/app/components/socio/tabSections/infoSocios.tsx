@@ -36,6 +36,20 @@ function InfoSocios(dataSocios: any) {
         }
     }
 
+    const tipo = (tipo: any) => {
+
+      if(tipo == "01") {
+        return "ORDINARIO"
+      } else if (tipo == "08") {
+        return "AFILIADO"
+      } else if (tipo == "09") {
+        return "DISFRUTE"
+      }
+      else if (tipo == "10") {
+        return "OPERACIONES CIM"
+      }
+  }
+
     const direccion = datos.foto != null? datos.foto : '';
   
 
@@ -45,7 +59,7 @@ function InfoSocios(dataSocios: any) {
 
   return (
 
-    <CardContent className=" my-1 flex flex-row flex-wrap border-b border-b-gray-200 justify-start">
+    <CardContent className=" my-1 flex flex-row flex-wrap justify-start">
       <article className=' w-3/5 flex flex-wrap border-r mt-4' >
         <div className='w-full flex  px-4'>
        <img src={ (foto != '')?'http://cimnet.com/fotocarnet/' + foto : 'error'} onError={(e) => {
@@ -58,6 +72,7 @@ function InfoSocios(dataSocios: any) {
          <DatosP nombre="estatus" dato={status(datos.estatus)}/>
          <DatosP nombre="telefono" dato={datos.telefonos}/>
        <DatosP nombre="n° carnet" dato={datos.carnet}/>
+            <DatosP nombre="fecha de nacimiento" dato={datos.fechanac? datos.fechanac.toLocaleDateString() : 'sin fecha'} />
 
          </div>
 
@@ -67,9 +82,8 @@ function InfoSocios(dataSocios: any) {
          <DatosP nombre="fecha inicio" dato={datos.fecha ? datos.fecha.toLocaleDateString() : 'sin fecha'}/>
          <DatosP nombre="fecha fin" dato={datos.fin? datos.fin.toLocaleDateString() :'no aplica'}/>
          <DatosP nombre="rif" dato={datos.nrorif}/>
-         <DatosP nombre="email" dato={datos.email}/>
          <DatosP nombre="wwwcli" dato={datos.wwwcli}/>
-         <DatosP nombre="tipo" dato={datos.tipo}/>
+         <DatosP nombre="tipo" dato={tipo(datos.tipo)}/>
          <DatosP nombre="Accion" dato={datos.referenc1}/>
          <DatosP nombre="referencia" dato={datos.referenc2}/>
          <DatosP nombre="fax" dato={datos.numerofax}/>
@@ -78,6 +92,7 @@ function InfoSocios(dataSocios: any) {
        <DatosP nombre="estado civil" dato={datos.edocivil}/>
        <DatosP nombre="empresa donde trabaja" dato={datos.trabempresa}/>
        <DatosP nombre="exonerado" dato={datos.exonerdo}/>
+         <DatosP nombre="email" dato={datos.email}/>
          <DatosP nombre="nota" dato={datos.nota}/>
 
       </article>
@@ -87,7 +102,7 @@ function InfoSocios(dataSocios: any) {
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
         <AccordionTrigger className='border p-2 rounded-sm mb-2'>Contactos</AccordionTrigger>
-          <AccordionContent className='flex '>
+          <AccordionContent className='flex flex-wrap'>
       <DatosP nombre="telefono del trabajo" dato={datos.trabtelefon}/>
       <DatosP nombre="telefono movil" dato={datos.telefono_movil}/>
       <DatosP nombre="telefono de habitacion" dato={datos.telhabitaci}/>
@@ -99,11 +114,10 @@ function InfoSocios(dataSocios: any) {
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
         <AccordionTrigger className='border p-2 rounded-sm my-2 '>Fechas</AccordionTrigger>
-          <AccordionContent className='flex '>
+          <AccordionContent className='flex flex-wrap'>
             <DatosP nombre="fecha de exoneracion" dato={datos.fch_exon ? datos.fch_exon.toLocaleDateString() : 'sin fecha'}/>
             <DatosP nombre="fecha de emision del carnet" dato={datos.feemicrnt? datos.feemicrnt.toLocaleDateString() : 'sin fecha'}/>
             <DatosP nombre="fecha de vencimiento del carnet" dato={datos.fevnccrnt? datos.fevnccrnt.toLocaleDateString() : 'sin fecha'}/>
-            <DatosP nombre="fecha de nacimiento" dato={datos.fechanac? datos.fechanac.toLocaleDateString() : 'sin fecha'} />
           </AccordionContent>
           </AccordionItem>
       </Accordion>
