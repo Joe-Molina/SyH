@@ -524,7 +524,7 @@ model factura_header {
   agencia              String    @default(" ") @db.VarChar(3)
   tipodoc              String    @default("") @db.VarChar(3)
   moneda               String?   @default(" ") @db.VarChar(3)
-  documento            String    @id @default("") @db.VarChar(8)
+  documento            String    @default("") @db.VarChar(8)
   codcliente           String    @default(" ") @db.VarChar(15)
   nombrecli            String?   @default(" ") @db.VarChar(100)
   contacto             String?   @default(" ") @db.VarChar(30)
@@ -664,4 +664,24 @@ model factura_header {
   baseimpo4            Float     @default(0.0000000)
   baseimpo5            Float     @default(0.0000000)
   baseimpo6            Float     @default(0.0000000)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model facturas {
+  tipodoc    String    @db.VarChar(3)
+  documento  String    @id @db.VarChar(8)
+  codigo     String    @db.VarChar(25)
+  nombre     String?   @default(" ") @db.VarChar(80)
+  cantidad   Float     @default(0.0000000)
+  montototal Float     @default(0.0000000)
+  proveedor  String    @default(" ") @db.VarChar(15)
+  fechadoc   DateTime  @default(dbgenerated("'0000-00-00'")) @db.Date
+  emisor     String?   @default("") @db.VarChar(20)
+  notas      String?   @default("") @db.VarChar(255)
+  nombrecli  String?   @default(" ") @db.VarChar(100)
+  rif        String?   @default(" ") @db.VarChar(14)
+  estatusdoc String    @default("") @db.Char(1)
+  fechayhora DateTime? @db.DateTime(0)
 }

@@ -11,8 +11,9 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
+import {Img} from 'next/image'
 
-const parentezco:any = {
+const parentezco = {
   '00' : 'SOCIO',
   '01' :'CONYUGE  SOCIO',
   '02' :'PADRE/MADRE SOCIO',
@@ -54,7 +55,7 @@ const parentezco:any = {
 }
 
 
-const FamiliarCard = (data: any) => {
+const FamiliarCard = (data) => {
 
   const dataF = data.data
 
@@ -66,7 +67,7 @@ const FamiliarCard = (data: any) => {
    <AlertDialog>
    <AlertDialogTrigger asChild> 
      <article className='flex border w-96  p-3 1 rounded-md hover:scale-105 transition m-4 hover:bg-slate-100'>
-    <img src={ (foto != '')?'http://cimnet.com/fotocarnet/' + foto : 'error' }  
+    <Img src={ (foto != '')?'http://cimnet.com/fotocarnet/' + foto : 'error' }  
       onError={(e) => {
         e.target.src = '/avataricon.png'; }} className='w-40 h-40 rounded-sm' />
     <div className='flex flex-col justify-between px-2'>    
@@ -78,11 +79,11 @@ const FamiliarCard = (data: any) => {
    </AlertDialogTrigger>
 
    <AlertDialogContent>
-     <AlertDialogHeader>
+     <AlertDialogHeader> 
       
        <AlertDialogTitle>
         <div className='flex'>
-        <img src={ 'http://cimnet.com/fotocarnet/' + foto} alt="foto del familiar" className='w-40 h-40 border rounded-sm' />
+        <Img src={ 'http://cimnet.com/fotocarnet/' + foto} alt="foto del familiar" className='w-40 h-40 border rounded-sm' />
         <div>
           <p className='ml-4 p-2 rounded-sm bg-slate-900 text-white mb-2 text-sm'>{dataF.nombre}</p>
           <p className='ml-4 bg-slate-200 p-1 m-1 rounded-md text-sm'>cedula: {dataF.cedula}</p>
@@ -129,7 +130,7 @@ const FamiliarCard = (data: any) => {
 
 
 
-function InfoFamiliares(dataFamiliares: any) {
+function InfoFamiliares(dataFamiliares) {
 
     const datosFamilia = dataFamiliares.dataFamiliares
   
@@ -137,14 +138,14 @@ function InfoFamiliares(dataFamiliares: any) {
       <div>
         <h2 className='ml-3 text-4xl font-bold'>Familiares</h2>
         <div className='flex flex-wrap'>
-          {datosFamilia.map((familiar: any, index: any) => (
+          {datosFamilia.map((familiar, index) => (
             (familiar.codigo_parentesco !== '08' && familiar.codigo_parentesco !== '10' && familiar.codigo_parentesco !== '11' && familiar.codigo_parentesco !== '12' && familiar.codigo_parentesco !== '13' && familiar.codigo_parentesco !== '14' && familiar.codigo_parentesco !== '15' && familiar.codigo_parentesco !== '16' && familiar.codigo_parentesco !== '20' && familiar.codigo_parentesco !== '21' && familiar.codigo_parentesco !== '22' && familiar.codigo_parentesco !== '23' && familiar.codigo_parentesco !== '24' && familiar.codigo_parentesco !== '25' && familiar.codigo_parentesco !== '26' && familiar.codigo_parentesco !== '27' && familiar.codigo_parentesco !== '37') ? 
               <FamiliarCard data={familiar} key={index}/> : null
           ))}
         </div>
         <h2 className='ml-3 text-4xl font-bold'>Pases</h2>
         <div className='flex flex-wrap'>
-        {datosFamilia.map((familiar: any, index: any) => (
+        {datosFamilia.map((familiar, index) => (
             (familiar.codigo_parentesco !== '08' && familiar.codigo_parentesco !== '10' && familiar.codigo_parentesco !== '11' && familiar.codigo_parentesco !== '12' && familiar.codigo_parentesco !== '13' && familiar.codigo_parentesco !== '14' && familiar.codigo_parentesco !== '15' && familiar.codigo_parentesco !== '16' && familiar.codigo_parentesco !== '20' && familiar.codigo_parentesco !== '21' && familiar.codigo_parentesco !== '22' && familiar.codigo_parentesco !== '23' && familiar.codigo_parentesco !== '24' && familiar.codigo_parentesco !== '25' && familiar.codigo_parentesco !== '26' && familiar.codigo_parentesco !== '27' && familiar.codigo_parentesco !== '37') ? 
               null : <FamiliarCard data={familiar} key={index}/>
           ))}

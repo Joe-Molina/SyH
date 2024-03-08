@@ -27,7 +27,7 @@ async function FacturaSocioPage({ params: { codigo } }: { params: { codigo: stri
         }
     })
 
-    const facturas = await prisma.factura_detail.findMany({
+    const facturas = await prisma.facturas.findMany({
         where: {
           proveedor: codigo
         },
@@ -39,7 +39,8 @@ async function FacturaSocioPage({ params: { codigo } }: { params: { codigo: stri
           emisor: true,
           cantidad: true,
           montototal: true,
-          fechadoc: true
+          fechadoc: true,
+          estatusdoc: true,
         },
         orderBy: {
           fechadoc: 'desc' // 'desc' for descending order
@@ -47,6 +48,8 @@ async function FacturaSocioPage({ params: { codigo } }: { params: { codigo: stri
         take: 100
     
       })
+
+    console.log(facturas)
 
 
 
@@ -71,7 +74,8 @@ async function FacturaSocioPage({ params: { codigo } }: { params: { codigo: stri
 
       {
         facturas.map((dato: any, index: any) => (
-          <TableRow key={index}>
+          dato.tipodoc == "FAC"? 
+          <TableRow key={index} className={dato.estatusdoc != 2? 'bg-red-400 text-white' : '' }>
             <TableCell>{dato.fechadoc.toLocaleDateString()}</TableCell>
             <TableCell>{dato.nombre + dato.notas}</TableCell>
             <TableCell>{dato.tipodoc}</TableCell>
@@ -80,6 +84,12 @@ async function FacturaSocioPage({ params: { codigo } }: { params: { codigo: stri
             <TableCell >{dato.emisor}</TableCell>
             <TableCell className="text-right">{dato.montototal}</TableCell>
           </TableRow>
+
+          :
+
+          ''
+            
+          
         ))
       }
 

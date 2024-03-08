@@ -3,7 +3,6 @@ import NextAuth, { getServerSession } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from 'bcrypt'
 import { redirect } from 'next/navigation'
-import { signOut } from 'next-auth/react';
 
 export const authOptions = {
   providers: [
@@ -27,7 +26,7 @@ export const authOptions = {
 
         console.log(userFound)
 
-        const matchPassword = await bcrypt.compare(credentials.password, userFound.password)
+        const matchPassword = bcrypt.compare(credentials.password, userFound.password)
 
         console.log(matchPassword)
 
