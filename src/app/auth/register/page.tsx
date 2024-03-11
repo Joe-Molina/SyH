@@ -35,6 +35,8 @@ function RegisterPage() {
       }
     })
 
+    console.log(errors)
+
 
   return (
     <div className='flex justify-center items-center h-[600px]'>

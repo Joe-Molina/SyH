@@ -7,12 +7,16 @@ export async function POST(request){
         const data = await request.json();
 
         console.log(data)
+        console.log(data)
 
-    const userFound = await prisma.users.findUnique({
+    const userFound = await prisma.users.findFirst({
         where: {
           email: data.email,
         },
       });
+
+      console.log(userFound)
+      console.log('tu')
   
       if (userFound) {
         return NextResponse.json(
