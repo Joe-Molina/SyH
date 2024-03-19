@@ -41,6 +41,7 @@ async function FacturaSocioPage({ params: { codigo } }: { params: { codigo: stri
           montototal: true,
           fechadoc: true,
           estatusdoc: true,
+          documento: true
         },
         orderBy: {
           fechadoc: 'desc' // 'desc' for descending order
@@ -62,6 +63,7 @@ async function FacturaSocioPage({ params: { codigo } }: { params: { codigo: stri
     <TableHeader>
       <TableRow className=''>
         <TableHead className="w-[100px]">fecha</TableHead>
+        <TableHead >Documento</TableHead>
         <TableHead >Nombre</TableHead>
         <TableHead>tipo docmento</TableHead>
         <TableHead>Proveedor</TableHead>
@@ -77,6 +79,7 @@ async function FacturaSocioPage({ params: { codigo } }: { params: { codigo: stri
           dato.tipodoc == "FAC"? 
           <TableRow key={index} className={dato.estatusdoc != 2? 'bg-red-400 text-white' : '' }>
             <TableCell>{dato.fechadoc.toLocaleDateString()}</TableCell>
+            <TableCell>{dato.documento}</TableCell>
             <TableCell>{dato.nombre + dato.notas}</TableCell>
             <TableCell>{dato.tipodoc}</TableCell>
             <TableCell>{dato.proveedor}</TableCell>
