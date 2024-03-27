@@ -3,6 +3,7 @@
 import React from "react"
 import Link from "next/link"
 import { useState } from "react"
+import { VerFacturasButton } from "../header/VerFacturasButton"
 
 export const Buscador = (socios: any) => {
 
@@ -44,10 +45,10 @@ export const Buscador = (socios: any) => {
                  : 
 
                  <div>
-                     <nav className="bg-zinc-950 h-10 flex items-center rounded-sm mb-3">
-            <input value={search} onChange={searcher} type="text" placeholder=" Buscar Socio..." className="h-7 ml-1 p-2 rounded-sm"/>
-            <button className="bg-white py-1 px-3 mx-2 rounded-sm text-sm hover:bg-slate-600 hover:text-white transition" onClick={handleCLick}> cambiar filtro </button>
-            <p className="text-white text-sm">{stwich? 'buscando por codigo de accion': 'buscando por nombre'}</p>
+                     <nav className=" h-10 flex items-center rounded-sm mb-3">
+            <input value={search} onChange={searcher} type="text" placeholder={stwich? 'Introduce una accion': 'Introduce un nombre'} className="h-7 ml-1 p-2 rounded-sm text-zinc-500 shadow-sm shadow-slate-300"/>
+            <button className="bg-white py-1 px-2 mx-2 rounded-sm text-sm hover:bg-slate-600 hover:text-white transition text-zinc-500 shadow-sm shadow-slate-300" onClick={handleCLick}> cambiar filtro </button>
+            <VerFacturasButton/>
 
             </nav>
 

@@ -3,8 +3,6 @@ import Link from 'next/link'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '../api/auth/[...nextauth]/route'
 import { ButtonSignIn, ButtonSignOut } from './header/buttonSignOut'
-import { VerFacturasButton } from './header/VerFacturasButton'
-
 
 async function Heeader() {
 
@@ -16,8 +14,6 @@ async function Heeader() {
       <div className='w-52 h-10 flex items-center justify-center'>
         <Link className='text-black font-extrabold' href='/'>SyH Data</Link>
       </div>
-      {session? <VerFacturasButton/> : ''}
-      {session? <span className='px-5 py-1 bg-zinc-900 rounded-sm text-white '>Usuario: {session.user?.name}</span> : <div></div>}
       {session? <ButtonSignOut/> : ''}
     </section>
   )

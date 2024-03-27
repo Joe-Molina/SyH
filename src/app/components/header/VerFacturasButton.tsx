@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 
 export function VerFacturasButton() {
 
-  const [search, setSearch] = useState('')
+  let [search, setSearch] = useState('')
 
   const router = useRouter()
 
@@ -16,9 +16,12 @@ export function VerFacturasButton() {
 
 
   return (
-    <div className='flex bg-black p-2 text-white rounded-lg'>
+    <div className='flex text-zinc-500 shadow-sm shadow-slate-300 px-2 py-1  rounded-lg'>
       <input onChange={searcher} className='w-32 mr-3 text-black rounded-sm' type="text" placeholder='num accion...'/>
-      <button onClick={() => {router.push('/facturas/' + search)}} className='shadow-sm'> buscar facturas </button>
+      <button onClick={() => {
+        router.push('/facturas/' + search);
+        search = ""
+         }} className='shadow-sm'> buscar facturas </button>
     </div>
   )
 }
