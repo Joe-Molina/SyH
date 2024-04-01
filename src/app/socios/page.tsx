@@ -12,7 +12,7 @@ const  SociosPage  = async () => {
     
 
   return (
-    <article className='p-4 '>
+    <article className='m-4 mt-20'>
         <section >
                 <Buscador socios={socios} />
         </section>

@@ -14,14 +14,37 @@ export function VerFacturasButton() {
     console.log(search)
 }
 
+const searchFactura = () => {
+
+    if(search.length > 5){
+      router.push('/facturas/' + search);
+    search = ""
+    } else{
+      alert('numero de accion invalida')
+    }
+     
+}
+
+const keyPress = (e: any) => {
+  let keyy = e.key
+
+  console.log(keyy)
+
+  if(keyy == "Enter"){
+    if(search.length > 5){
+      router.push('/facturas/' + search);
+    search = ""
+    } else{
+      alert('numero de accion invalida')
+    }
+  }
+}
+
 
   return (
-    <div className='flex text-zinc-500 shadow-sm shadow-slate-300 px-2 py-1  rounded-lg'>
-      <input onChange={searcher} className='w-32 mr-3 text-black rounded-sm' type="text" placeholder='num accion...'/>
-      <button onClick={() => {
-        router.push('/facturas/' + search);
-        search = ""
-         }} className='shadow-sm'> buscar facturas </button>
+    <div className='flex text-zinc-500 shadow-sm shadow-slate-300  rounded-lg'>
+      <input onChange={searcher} onKeyDown={keyPress}  className='w-32 mr-3 text-black rounded-sm px-2 py-1 ' type="text" placeholder='num accion...'/>
+      <button onClick={searchFactura} className=' px-2 py-1 border-l border-zinc-200 hover:bg-zinc-200  rounded-sm'> buscar facturas </button>
     </div>
   )
 }
