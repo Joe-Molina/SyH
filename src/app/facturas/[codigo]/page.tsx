@@ -58,7 +58,8 @@ async function FacturaSocioPage({ params: { codigo } }: { params: { codigo: stri
   return (
     <div className='z-10 overflow-auto m-4 border border-zinc-100 rounded-md mb-3'>
     <Back/>
-     <h2 className='p-3 text-3xl font-bold'>Facturas de {facturas[0]?.nombrecli + codigo}</h2>   
+    <h1 className='p-1 px-3 text-3xl font-semibold'>Facturas</h1>
+     <h2 className='p-3 text-3xl font-semibold'>{facturas[0]?.nombrecli + `. (${codigo})`}</h2>   
      <Table>
     <TableCaption>Lista de facturas recientes</TableCaption>
     <TableHeader>

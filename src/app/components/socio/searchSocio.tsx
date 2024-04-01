@@ -49,7 +49,6 @@ export const Buscador = (socios: any) => {
                      <nav className=" h-10 flex items-center rounded-sm mb-3">
             <input value={search} onChange={searcher} type="text" placeholder={stwich? 'Introduce una accion': 'Introduce un nombre'} className="h-7 ml-1 p-2 rounded-sm text-zinc-500 shadow-sm shadow-slate-300"/>
             <button className="bg-white py-1 px-2 mx-2 rounded-sm text-sm hover:bg-slate-600 hover:text-white transition text-zinc-500 shadow-sm shadow-slate-300" onClick={handleCLick}> cambiar filtro </button>
-            <VerFacturasButton/>
 
             </nav>
 
@@ -64,14 +63,14 @@ export const Buscador = (socios: any) => {
                    { !stwich? 
                    results.map((socio: any) => (
                         <Link className='flex my-2 ' href={`/socios/${socio.codigo}`} key={socio.codigo} onClick={handleCLick2}>
-                            <p className='py-1 px-3 text-sm rounded-md mx-2 font-thin bg-zinc-600 text-zinc-100 shadow-xl w-24 text-center'>{socio.codigo}</p>
+                            <p className='py-1 px-3 text-sm rounded-md mx-2 font-thin bg-zinc-600 text-zinc-100  w-24 text-center'>{socio.codigo}</p>
                             <p className='py-1 px-3 text-sm rounded-md mx-2 shadow-sm hover:bg-gray-200 '>{socio.nombre}</p>
                         </Link>
                     ))
                     : 
                     resultsCodigo.map((socio: any) => (
                         <Link className='flex my-2 ' href={`/socios/${socio.codigo}`} key={socio.codigo} onClick={handleCLick2}>
-                            <p className='py-1 px-3 text-sm rounded-md mx-2 font-thin bg-zinc-600 text-zinc-100 shadow-xl w-24 text-center'>{socio.codigo}</p>
+                            <p className='py-1 px-3 text-sm rounded-md mx-2 font-thin bg-zinc-600 text-zinc-100  w-24 text-center'>{socio.codigo}</p>
                             <p className='py-1 px-3 text-sm rounded-md mx-2 shadow-sm hover:bg-gray-200 '>{socio.nombre}</p>
                         </Link>
                     ))

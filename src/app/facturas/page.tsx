@@ -9,9 +9,9 @@ async function facturasPage() {
 
 
   return (
-    <div className='m-4'>
+    <div className='m-4 mt-20'>
       <h1 className="text-3xl font-bold m-3">Buscar Facturas</h1>
-      <div className='w-72'><VerFacturasButton/></div>
+      <div><VerFacturasButton/></div>
     </div>
   )
 }

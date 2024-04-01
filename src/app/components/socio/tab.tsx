@@ -49,7 +49,7 @@ export function TabsDemo( data: any) {
       <div>
       <div className="flex justify-between">
       <Back/>
-      <Link href={"/facturas/" + datos.codigo}  className="px-4 py-2 bg-zinc-900 text-white rounded-md m-4 hover:scale-105 transition" onClick={handleCLick2}>facturas</Link>
+      <Link href={"/facturas/" + datos.codigo}  className="px-4 py-1 text-zinc-500  rounded-md m-4 hover:scale-105 transition shadow-md border border-zinc-300" onClick={handleCLick2}>facturas</Link>
       </div>
                 <TabsList className="grid w-full grid-cols-2">
         <TabsTrigger value="Informacion personal">Informacion personal</TabsTrigger>

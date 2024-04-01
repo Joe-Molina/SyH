@@ -42,9 +42,9 @@ const keyPress = (e: any) => {
 
 
   return (
-    <div className='flex text-zinc-500 shadow-sm shadow-slate-300  rounded-lg'>
-      <input onChange={searcher} onKeyDown={keyPress}  className='w-32 mr-3 text-black rounded-sm px-2 py-1 ' type="text" placeholder='num accion...'/>
-      <button onClick={searchFactura} className=' px-2 py-1 border-l border-zinc-200 hover:bg-zinc-200  rounded-sm'> buscar facturas </button>
+    <div className='flex text-zinc-500 shadow-sm shadow-slate-300  rounded-lg justify-between w-96'>
+      <input onChange={searcher} onKeyDown={keyPress}  className=' mr-3 text-black rounded-sm px-2 py-1 w-full' type="text" placeholder='num accion...'/>
+      <button onClick={searchFactura} className=' px-2 py-1 border-l border-zinc-200 hover:bg-zinc-200  rounded-sm'> buscar</button>
     </div>
   )
 }
